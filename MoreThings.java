@@ -196,7 +196,21 @@
 
 
 
+........................  Picasso library to load images from IMAGE URL
+  
+  
+          ImageView image = (ImageView)findViewById(R.id.imageView2);
+          Picasso.with(MainActivity.this).load("IMAGE URL").into(image);
+
+
+
+
+........................ mediaPlayer 
+
+        MediaPlayer mediaPlayer;
+        mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.correct);   // make raw file and put music inside it 
+        mediaPlayer.start();
+
+
 ........................
-
-
 
