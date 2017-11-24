@@ -101,3 +101,84 @@ public class DBManager {
     }
 
 }
+
+
+
+
+
+
+
+..................... display from DBManager
+
+    ArrayList<AdapterItems> listnewsData = new ArrayList<AdapterItems>();
+    MyCustomAdapter myadapter;
+
+
+
+    void LoadElement() {
+        listnewsData.clear();
+        Cursor cursor = dbManager.query(null, null, null, DBManager.ColID);
+        if (cursor.moveToFirst()) {
+            do {
+        listnewsData.add(new AdapterItems(cursor.getString( cursor.getColumnIndex(DBManager.ColID)),
+        cursor.getString( cursor.getColumnIndex(DBManager.ColNAME)),
+            } while (cursor.moveToNext());
+        }
+        myadapter = new MyCustomAdapter(listnewsData);
+        ListView lsNews = (ListView) findViewById(R.id.LVNews);  // dont forget you should create listview from xml
+        lsNews.setAdapter(myadapter);
+    }
+                                          
+                                          
+
+
+                                          
+private class MyCustomAdapter extends BaseAdapter {
+        public ArrayList<AdapterItems> listnewsDataAdpater ;
+        public MyCustomAdapter(ArrayList<AdapterItems>  listnewsDataAdpater) {
+            this.listnewsDataAdpater=listnewsDataAdpater;
+        }
+        @Override
+        public int getCount() {
+            return listnewsDataAdpater.size();
+        }
+        @Override
+        public String getItem(int position) {
+            return null;
+        }
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent)
+        {
+            LayoutInflater mInflater = getLayoutInflater();
+            View myView = mInflater.inflate(R.layout.layout_ticket1, null);   // layout for every item
+            final AdapterItems s = listnewsDataAdpater.get(position);
+                
+            TextView name=(TextView)myView.findViewById(R.id.name);
+            name.setText(s.NAME);
+         
+            return myView;
+        }
+    }
+                                          
+                                          
+                                          
+                                          
+   ....................... class AdapterItems.java     
+                                          
+                                          
+                  public class AdapterItems
+                        {
+                            public  String ID;
+                            public  String Name;
+
+                            AdapterItems(String ID,String Name){
+                                this.ID=ID;
+                                this.Name=Name;
+                            }
+                        }
+                                          
+                                          
