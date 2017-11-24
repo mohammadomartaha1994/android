@@ -134,4 +134,69 @@
 
 
 
-..................   
+..................   go to instgram  account
+
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/mohammad_omar_taha/"));
+                intent.setPackage("com.instagram.android");
+                startActivity(intent);
+
+.................  go to facebook account
+
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/mohammad.omar.taha"));
+                startActivity(intent);
+
+
+
+.................. send Email
+
+
+    public void composeEmail() {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"));
+        
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"mohammadomartaha1994@gmail.com"});  // to
+        intent.putExtra(Intent.EXTRA_SUBJECT, " subject ");
+        intent.putExtra(Intent.EXTRA_TEXT,"  text ");
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        try {
+            startActivity(Intent.createChooser(intent, "Send mail..."));
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(getApplicationContext(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
+
+.................... link to play store 
+
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("market://details?id=com.lecture.mohammad.alarmLecture"));
+                startActivity(intent);
+
+
+
+
+.................... internet connection
+
+        public static boolean isInternetConnected(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null && activeNetwork.isConnectedOrConnecting();}
+
+
+                if (isInternetConnected(getApplicationContext())){
+                    Toast.makeText(getApplicationContext()," Internet Connected ",Toast.LENGTH_LONG).show();
+                }
+                else
+                    Toast.makeText(getApplicationContext()," No Internet Connection ",Toast.LENGTH_LONG).show();
+                 }
+
+
+
+........................
+
+
+
