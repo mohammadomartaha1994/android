@@ -97,4 +97,41 @@
           
           
           
-.................          
+................. call to number 
+
+
+                              Intent intent = new Intent(Intent.ACTION_DIAL);
+                              intent.setData(Uri.parse("tel:0"+s.phone));  // s.phne is a string has the phone number
+                              if(intent.resolveActivity(getPackageManager()) != null ){
+                                  startActivity(intent);
+                              }
+
+
+..............  convert bitmap image to string 
+
+    public String getStringImage(Bitmap bmp){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bmp.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        byte[] imageBytes = baos.toByteArray();
+        String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
+        return encodedImage;
+    }
+
+
+............. convert string image to bitmap 
+
+
+    public Bitmap StringToBitMap(String encodedString) {
+        try {
+            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
+    }
+
+
+
+..................   
