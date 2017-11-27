@@ -1,4 +1,3 @@
-package com.kafrmalik.mohammad.cv;
 
 
 import android.app.NotificationManager;
