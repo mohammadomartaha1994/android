@@ -9,16 +9,13 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.widget.Toast;
 
-/**
- * Created by mohammad on 12/17/2016.
- */
-public class AlertReceier extends BroadcastReceiver{
-        public AlertReceier(){
-        }
+
+public class NotificationService extends BroadcastReceiver{
+        public NotificationService(){}
     @Override
     public void onReceive(Context context, Intent intent) {
 
-            if(intent.getAction().equalsIgnoreCase("com.kafrmalik.mohammad")){
+            if(intent.getAction().equalsIgnoreCase("com.kafrmalik.mohammad")){             ///Service name
             PendingIntent notification = PendingIntent.getActivity(context, 0,
                     new Intent(context,MainActivity.class),PendingIntent.FLAG_UPDATE_CURRENT);
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
@@ -33,9 +30,12 @@ public class AlertReceier extends BroadcastReceiver{
             nm.cancel(0);
             nm.notify(0,builder.build());
             }
+            
+            
             else if (intent.getAction().equalsIgnoreCase("android.intent.action.BOOT_COMPLETED")){
 
-                   //
+                   //  
+                   
 
             }
     }
