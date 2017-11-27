@@ -1,4 +1,18 @@
-package com.example.mohammad.nouran;
+
+use on activites 
+
+set :
+        SharedPreferencesHelper.setSharePref(getActivity(),"key",value); // all types
+
+get :
+
+        SharedPreferencesHelper.getBooleanSharedPref(getActivity(),"key") ;  boolean
+        SharedPreferencesHelper.getStringSharedPref(getActivity(),"key") ;   String
+        SharedPreferencesHelper.getIntSharedPref(getActivity(),"key") ;   Integer
+        
+
+......................................................
+            
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -38,23 +52,6 @@ public class SharedPreferencesHelper {
         return sharedPref.getInt(key, defaultValue);
 
     }
-
-    public  static int getIntYearSharedPref(Context context , String key)
-    {
-        SharedPreferences sharedPref = context.getSharedPreferences(SHARED_PREFERENCES_FILE , Context.MODE_PRIVATE);
-        int defaultValue = 2018;
-        return sharedPref.getInt(key, defaultValue);
-
-    }
-
-    public  static String getEmailSharedPref(Context context , String key)
-    {
-        SharedPreferences sharedPref = context.getSharedPreferences(SHARED_PREFERENCES_FILE , Context.MODE_PRIVATE);
-        String defaultValue = "mohammadomartaha1994@gmail.com";
-        return sharedPref.getString(key, defaultValue);
-
-    }
-
 
     public  static String getStringSharedPref(Context context , String key)
     {
