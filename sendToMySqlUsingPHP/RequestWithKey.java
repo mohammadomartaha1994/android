@@ -13,7 +13,7 @@ public class RequestWithKey extends StringRequest {
     public  String  num1,num2;
     private Map<String,String> params;
 
-    public AddIDreq(String num1,String num2 ,Response.Listener<String> listener){
+    public RequestWithKey(String num1,String num2 ,Response.Listener<String> listener){
         super(Method.POST,REGISTER_REQUEST_URL,listener,null);
         params = new HashMap<>();
         params.put("num1",num1);
